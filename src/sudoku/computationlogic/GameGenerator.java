@@ -33,10 +33,12 @@ public class GameGenerator {
             }
 
             int[][] toBeSolved = new int[GRID_BOUNDARY][GRID_BOUNDARY];
-            SudokuUtilities.copySudokuArrayValues(solvableArray, toBeSolved)
+            SudokuUtilities.copySudokuArrayValues(solvableArray, toBeSolved);
+
+            solvable = SudokuSolver.puzzleIsSolvable(toBeSolved);
         }
 
-        return new int[0][];
+        return solvableArray;
     }
 
     private static int[][] getSolvedGame() {
